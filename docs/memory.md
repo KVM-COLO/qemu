@@ -22,7 +22,7 @@ struct MemoryRegion {
 ```
 
 `|ram_addr_t|` is used as guest RAM memory offsets.
-![RAMBlock](https://github.com/wangchenghku/qemu-kvm/blob/master/docs/ramblock.png)
+![RAMBlock](https://github.com/wangchenghku/qemu/blob/master/docs/ramblock.png)
 
 Inside these RAMBlocks, pages can be accessed using the base address of a RAMBlock’s MemoryRegion and an offset to the actual page, which is a multiple of TARGET_PAGE_SIZE (i.e., 4KiB for x86 and x86-64 guests).
 
