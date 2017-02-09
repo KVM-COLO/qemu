@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #usage:
 # colo-proxy-script.sh primary/secondary install/uninstall phy_if virt_if index
 #.e.g:
