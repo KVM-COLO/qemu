@@ -1,11 +1,10 @@
 # QEMU Memory Management
 
-All memory that is available to the guest is organized in RAMBlocks, which, for example, represent the main memory or video memory, and each occupy one MemoryRegion. The RAMBlocks are organized as a linked list, which
+All memory that is available to the guest is organized in RAMBlocks, which, for example, represent the main memory or video memory. The RAMBlocks are organized as a linked list, which
 allows iterating over them.
 
 ```
 struct RAMBlock {
-    struct MemoryRegion *mr;
     uint8_t *host;
     ram_addr_t offset;
     ram_addr_t used_length;
