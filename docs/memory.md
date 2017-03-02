@@ -13,7 +13,7 @@ struct RAMBlock {
     QLIST_ENTRY(RAMBlock) next;
     ...
 };
-
+```
 `|ram_addr_t|` is used as guest RAM memory offsets.
 ![RAMBlock](https://github.com/wangchenghku/qemu/blob/master/docs/ramblock.png)
 
