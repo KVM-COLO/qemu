@@ -285,7 +285,11 @@ static int colo_do_checkpoint_transaction(MigrationState *s,
     qio_channel_io_seek(QIO_CHANNEL(bioc), 0, 0, NULL);
     bioc->usage = 0;
 
-    qemu_mutex_lock_iothread();
+    /*
+     * iothreads running a select event loop to process I/O
+     * such as network packets need qemu_mutex_lock_iothread()
+     */
+    qemu_mutex_lock_iothread()();
     if (failover_get_state() != FAILOVER_STATUS_NONE) {
         qemu_mutex_unlock_iothread();
         goto out;
