@@ -13,9 +13,9 @@ Migration with RDMA is separated into two parts:
 
 2. Everything else (a control channel is introduced)<br>
    Each message has a header portion and a data portion. The 'type' field has different command values:<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Ready                      (control-channel is available)<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Register request           (dynamic chunk registration)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. QEMU File                  (for sending non-live device state)<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Register request           (dynamic chunk registration)<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Ready                      (control-channel is available)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. ...
 
 "Everything else" is transmitted using a formal protocol now, consisting of infiniband SEND messages.
