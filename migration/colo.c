@@ -701,6 +701,7 @@ void *colo_process_incoming_checkpoints(void *opaque)
         }
 
         /* read vm device state into colo buffer */
+        /* total_size may exceed the range of int */
         ret = qsb_fill_buffer(mis->colo_buffer, f, total_size);
         if (ret != total_size) {
             error_report("can't get all migration data");
