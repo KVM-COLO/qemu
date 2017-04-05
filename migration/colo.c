@@ -791,6 +791,7 @@ out:
             break;
         }
         usleep(200 * 1000);
+        // sched_yield(); // give control to other threads
     }
     /* check flag again*/
     if (!failover_request_is_active()) {
