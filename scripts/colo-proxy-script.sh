@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+# sed -i -e 's/^#!\/bin\/sh/#!\/bin\/bash/' colo-proxy-script.sh
+
 #usage:
 # colo-proxy-script.sh primary/secondary install/uninstall phy_if virt_if index
 #.e.g:
