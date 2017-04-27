@@ -45,3 +45,6 @@ When a chunk is full (or a flush() occurs), the memory backed by the chunk is re
 both sides using the aforementioned protocol. After pinning, an RDMA Write is generated and transmitted for the entire chunk.
 
 Chunks are also transmitted in batches: This means that we do not request that the hardware signal the completion queue for the completion of *every* chunk. The current batch size is about 64 chunks (corresponding to 64 MB of memory). Only the last chunk in a batch must be signaled. This helps keep everything as asynchronous as possible and helps keep the hardware busy performing RDMA operations.
+
+## RDMA Based Replication of Virtual Machines
+Notice, however, that contrary to virtual machine migration, where the new content of each dirty page can be directly transferred to the corresponding remote address of the target machine, in case of VM replication the backup needs to buffer the updates first, otherwise, a failure during the data transfer would leave it in an inconsistent state. This implies that at the end of each replication epoch the backup machine needs to apply all changes together in a transactional fashion, only if all data were received successfully. For this reason, we maintain a large continuous buffer on the backup machine which can be accessed via RDMA from the primary host.
