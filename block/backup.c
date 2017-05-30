@@ -179,6 +179,12 @@ out:
     return ret;
 }
 
+/* NBD server receives the primary write operation and writes the data
+ * to S. Before we write data to S, the backup job will read the original
+ * data and backup it to the hidden disk. We keep a bitmap to remeber
+ * which sector is backuped from S to the hidden disk.
+ */
+
 static int coroutine_fn backup_before_write_notify(
         NotifierWithReturn *notifier,
         void *opaque)
